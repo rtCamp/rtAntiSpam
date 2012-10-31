@@ -1,0 +1,5 @@
+#social .inside a { background: url("../img/rt-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
+    #social .inside a.facebook { background-position: -215px 0; }
+    #social .inside a.twitter { background-position: -559px 0; }
+    #social .inside a.rss { background-position: -430px 0; }
+    #social .inside a.linkedin { background-position: -301px 0; }

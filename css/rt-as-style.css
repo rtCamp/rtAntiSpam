@@ -1,0 +1,38 @@
+/* Tabs */
+.rtas-tabs .content { clear: both; background: #eee; padding: 15px 10px 0; height: 100%; position: relative; }
+    #logged-in-user-container { overflow: hidden; padding: 10px 10px 0; }
+    #logged-in-user-container h4 { margin: 0; padding: 0 0 10px; } 
+    #logged-in-user-container p { margin: 0 0 8px 0 }
+    #logged-in-user-container img { float: left; margin: 5px 10px 15px 0; border: 5px #FFF solid; }
+    .rtas-tabs .content form { clear: both; overflow: hidden; }
+        .rtas-tabs .login-register-tabs { clear: both; margin: 0; overflow: hidden; padding: 0; width: 100%; }
+            .rtas-tabs .login-register-tabs li { cursor: pointer; display: block; float: left; overflow: hidden; padding: 0 !important; }
+                .rtas-tabs .login-register-tabs li a { background: #DDD; color: #000; display: block; font-weight: bold; height: 100%; padding: 8px 10px; text-decoration: none; }
+                .rtas-tabs .login-register-tabs li.active a { background: #EEE; }
+            
+            .rtas-tabs .content p { margin-bottom: 15px; }
+                .rtas-tabs .content input.rtas-input { height: 20px; margin: 0; padding: 2px 5px; width: 80%; }
+                .rtas-rememberme-label { padding: 0 0 15px 5px; }
+                               
+            .rtas-tabs .content .available { background: url("../img/availability.png") no-repeat scroll 0 1px transparent; display: block; font-size: 12px; line-height: 150%; margin: 3px 0 0; padding: 0 0 0 22px; }
+            .rtas-tabs .content .not-available { background: url("../img/availability.png") no-repeat scroll 0 -45px transparent; display: block; font-size: 12px; line-height: 150%; margin: 3px 0 0; padding: 0 0 0 22px; }
+            .rtas-tabs .content .rtas-widget-info { padding-bottom: 10px; }
+
+#rtAS_registration_submit { margin-top: 15px; }
+a.forgot-password { margin: 0 10px; }
+.widget_rtas_login_reg_widget .hide-if-no-js { display: none; }
+.rtas-loader { display: none; background: url("../img/loader.gif") no-repeat rgba(255, 255, 255, 0.7) 50% 50%; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+
+#rtas-recaptcha-container { border: 3px solid #FFF; border-radius: 5px; }
+    #rtas-recaptcha { background: url("../img/rtas-recaptcha-logo.png") no-repeat 100% 75px #e0e0e0; border: 1px solid #a2a2a2; border-radius: 5px; color: black; font-family: helvetica, sans-serif; font-size: 11px; overflow: hidden; padding: 3px; }
+        #recaptcha_image { max-width: 100% !important; margin-bottom: 5px; }
+            #recaptcha_image img { max-width: 100% !important; }
+            
+            .recaptcha-code { background: url("../img/arrow.png") no-repeat 3px 0 #FFF; border: 1px solid #B2B2B2; border-radius: 4px; float: left; padding: 3px 4px 3px 20px; width: 142px; min-height: 40px; }
+            .recaptcha-code input { border: 1px solid #999; float: right; width: 140px; }
+            
+            .recaptcha-buttons { float: left; padding-left: 5px; width: 25px; }
+            .recaptcha_another a { background: url("../img/rtas-buttons.png") no-repeat 0 0; display: block; height: 17px; text-indent: -9999px; text-transform: uppercase; width: 25px; }
+            .recaptcha_only_if_image a { background: url("../img/rtas-buttons.png") no-repeat 0 -17px; display: block; height: 17px; text-indent: -9999px; text-transform: uppercase; width: 25px; }
+            .recaptcha_only_if_audio a { background: url("../img/rtas-buttons.png") no-repeat -26px -17px; display: block; height: 17px; text-indent: -9999px; text-transform: uppercase; width: 25px; }
+            .recaptcha_help a { background: url("../img/rtas-buttons.png") no-repeat 0 -34px; display: block; height: 17px; text-indent: -9999px; text-transform: uppercase; width: 25px; }
