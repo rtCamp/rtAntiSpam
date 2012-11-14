@@ -1,27 +1,27 @@
 (function(a){a.fn.extend({tabify:function(e){function c(b){hash=a(b).find("a").attr("href");return hash=hash.substring(0,hash.length-4)}function f(b){a(b).addClass("active");a(c(b)).show();a(b).siblings("li").each(function(){a(this).removeClass("active");a(c(this)).hide()})}return this.each(function(){function b(){location.hash&&a(d).find("a[href="+location.hash+"]").length>0&&f(a(d).find("a[href="+location.hash+"]").parent())}var d=this,g={ul:a(d)};a(this).find("li a").each(function(){a(this).attr("href", a(this).attr("href")+"-tab")});location.hash&&b();setInterval(b,100);a(this).find("li").each(function(){a(this).hasClass("active")?a(c(this)).show():a(c(this)).hide()});e&&e(g)})}})})(jQuery);
 
 jQuery(document).ready( function(){
-    
+
     jQuery('#rtAS_registration_username').keyup( function(){
         jQuery(this).next().hide();
     });
-    
+
     jQuery('#rtAS_registration_email').keyup( function(){
         jQuery(this).next().hide();
     });
-    
+
     jQuery('.widget_rtas_login_reg_widget .hide-if-js').hide();
     jQuery('.widget_rtas_login_reg_widget .hide-if-no-js').show();
-    
+
     jQuery('#tabsmenu').tabify();
-    
+
     jQuery( '#rtAS_login_username, #rtAS_registration_username' ).blur( function() { if( this.value == '' ) this.value='Username'; } );
     jQuery( '#rtAS_login_username, #rtAS_registration_username' ).focus( function() { if( this.value == 'Username' ) this.value=''; } );
     jQuery( '#rtAS_login_password' ).blur( function() { if( this.value == '' ) this.value='Password'; } );
     jQuery( '#rtAS_login_password' ).focus( function() { if( this.value == 'Password' ) this.value=''; } );
     jQuery( '#rtAS_registration_email' ).blur( function() { if( this.value == '' ) this.value='Email Address'; } );
     jQuery( '#rtAS_registration_email' ).focus( function() { if( this.value == 'Email Address' ) this.value=''; } );
-    
+
     jQuery('#rtAS-Login-Form').live( 'submit', function(e){
         e.preventDefault();
         jQuery( '#rtAS-Login-Block .rtas-loader' ).show();
@@ -32,7 +32,7 @@ jQuery(document).ready( function(){
             pwd: jQuery('#rtAS_login_password').val(),
             rememberme: jQuery('#rtAS_login_rememberme').val()
         }
-        
+
         jQuery.ajax({
           url: ajaxurl,
           type: "POST",
@@ -45,10 +45,16 @@ jQuery(document).ready( function(){
                     jQuery('#rtAS_login_username').parent().prev().addClass('not-available');
                     jQuery('#rtAS_login_username').parent().prev().html('Invalid Username or Password.');
                 }
-            }
+            },
+          xhrFields: {
+		  		withCredentials: true
+		  	}/*
+,
+		  crossDomain: true
+*/
         });
     });
-    
+
     jQuery('#rtAS_registration_username').blur(function(){
         var ajaxurl = url.admin_ajax_url;
         var data = {
@@ -56,8 +62,8 @@ jQuery(document).ready( function(){
             check_username: true,
             username: jQuery(this).val()
         };
-            
-        jQuery.ajax( { 
+
+        jQuery.ajax( {
             url: ajaxurl,
             type: 'POST',
             data: data,
@@ -66,7 +72,7 @@ jQuery(document).ready( function(){
             }
         });
     });
-    
+
     jQuery('#rtAS_registration_email').blur(function(){
         var ajaxurl = url.admin_ajax_url;
         var data = {
@@ -75,7 +81,7 @@ jQuery(document).ready( function(){
             email: jQuery(this).val()
         };
 
-        jQuery.ajax( { 
+        jQuery.ajax( {
             url: ajaxurl,
             type: 'POST',
             data: data,
@@ -84,7 +90,7 @@ jQuery(document).ready( function(){
             }
         });
     });
-    
+
     jQuery('#rtAS_registration_submit').live( 'click', function(e){
         e.preventDefault();
         jQuery( '#rtas-registration-block .rtas-loader' ).show();
@@ -97,7 +103,7 @@ jQuery(document).ready( function(){
             recaptcha_response_field : jQuery('#recaptcha_response_field').val()
         };
 
-        jQuery.ajax({ 
+        jQuery.ajax({
             url: ajaxurl,
             type: 'POST',
             dataType: 'json',

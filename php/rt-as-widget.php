@@ -31,10 +31,10 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
 
         if ( !empty($title) )
             echo $before_title . $title . $after_title;  ?>
-            
+
         <div id="rtAS-LnR-Tabs" class="rtas-tabs hide-if-no-js"><?php
             if( is_user_logged_in() ) {
-                global $current_user; 
+                global $current_user;
                 get_currentuserinfo(); ?>
                 <div id="logged-in-user-container" class="content">
                     <div class="user-salutation">
@@ -43,7 +43,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                         <p><a href="<?php echo admin_url( '/profile.php' ); ?>" title="Your Profile">Your Profile</a></p>
                         <p><a href="<?php echo wp_logout_url( $_SERVER['REQUEST_URI'] ); ?>" title="Log Out">Log Out</a></p>
                     </div>
-                </div><?php            
+                </div><?php
             } else { ?>
                 <ul id="tabsmenu" class="login-register-tabs">
                     <li class="active"><a href="#rtAS-Login-Block">Login</a></li>
@@ -89,7 +89,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                                 <input type="submit" name="wp-submit" id="rtAS_registration_submit" value="<?php _e('Register'); ?>" />
                             </p>
                         </form>
-                    </div><?php 
+                    </div><?php
                 }
             } ?>
         </div>
@@ -117,7 +117,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                 </p><?php
             }
          }
-        
+
         $instance = wp_parse_args((array) $instance, array('title' => ''));
         $title = $instance['title']; ?>
         <p>
@@ -140,7 +140,7 @@ function rtas_stylesheet() {
         wp_register_style( 'rt-as-style', $rt_as_style_url );
         wp_enqueue_style( 'rt-as-style');
     }
-    
+
     if( file_exists( $rt_as_style_file_ie ) ) {
         wp_register_style( 'rt-as-style-ie', RTAS_CSS_DIR_URL . '/rt-as-style-ie.css', '', '', 'screen, projection' );
         $GLOBALS['wp_styles']->add_data( 'rt-as-style-ie', 'conditional', 'IE' );
@@ -151,7 +151,7 @@ add_action( 'wp_print_styles', 'rtas_stylesheet' );
 
 /* Enqueueing JavaScript files */
 function rtas_javascript() {
-    
+
     $rt_as_js_url = RTAS_JS_DIR_URL . '/rt-as-common.js';
     $rt_as_js_file = RTAS_JS . '/rt-as-common.js';
 
@@ -160,9 +160,9 @@ function rtas_javascript() {
         $admin_ajax_url = array( 'admin_ajax_url' => admin_url( 'admin-ajax.php' ) );
         wp_localize_script( 'rt-as-common', 'url', $admin_ajax_url );
     }
-    
+
     wp_register_script( 'recaptcha-ajax', 'http://www.google.com/recaptcha/api/js/recaptcha_ajax.js', '', null, true );
-    
+
 }
 add_action( 'wp_enqueue_scripts', 'rtas_javascript', 9999 );
 function rtas_widget_javascript() {
@@ -198,7 +198,7 @@ function rtas_register_validation() {
             die();
         }
     }
-    
+
     if ( is_email( $_POST['email'] ) && email_exists( $_POST['email'] ) ) {
         $errors['email'] = 'Already exists. If it is yours, click <a href="' . RTAS_LOSTPSWD_URL . '">here</a> to reset password.';
     } elseif ( !is_email( $_POST['email'] ) ) {
@@ -210,7 +210,7 @@ function rtas_register_validation() {
         echo $errors['email'];
         die();
     }
-    
+
     if ( !rtas_check_recaptcha_answer() ){
         $errors['recaptcha'] = 'Captcha code is wrong. Renter Captcha Code.';
     } elseif( $errors['email'] == 'Valid Email.' && $errors['username'] == 'Available.' ) {
@@ -226,7 +226,7 @@ function rtas_register_validation() {
         $errors['recaptcha'] = "Renter Captcha Code.";
     }
     echo json_encode($errors);
-    
+
     die(); // this is required to return a proper result
 }
 add_action( 'wp_ajax_validate_registration', 'rtas_register_validation' );
@@ -237,7 +237,7 @@ function rtas_login_validation() {
         echo false;
     else
         echo true;
-    
+
     die(); // this is required to return a proper result
 }
 add_action( 'wp_ajax_validate_login', 'rtas_login_validation' );
