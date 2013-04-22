@@ -84,8 +84,6 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                                 <input class="rtas-input" type="text" name="user_email" id="rtAS_registration_email" value="<?php _e('Email Address') ?>" /><span></span>
                             </p>
 
-                            <?php echo rtas_recaptcha_code(); ?>
-                            <span></span>
 							<?php do_action('register_form'); ?>
                             <p>
                                 <input type="submit" name="wp-submit" id="rtAS_registration_submit" value="<?php _e('Register'); ?>" />
