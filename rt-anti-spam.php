@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: AntiSpam
+Plugin Name: rtAntiSpam
 Description: Keep spammers out of your site using this plugin.
 Version: 1.0
 Author: rtcamp

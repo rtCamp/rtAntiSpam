@@ -1,5 +1,5 @@
 === AntiSpam ===
-Contributors: rtcamp
+Contributors: rtcamp, JoshuaAbenazer, saurabhshukla,
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=paypal%40rtcamp%2ecom&item_name=AntiSpam%20Plugin
 Tags: login, registration, ajax, antispam, anti-spam, register, widget, widgets
 Requires at least: 3.0

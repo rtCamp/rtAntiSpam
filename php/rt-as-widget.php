@@ -60,7 +60,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                         <p>
                             <input class="rtas-input" type="password" name="pwd" id="rtAS_login_password" value="<?php _e('Password') ?>" />
                         </p>
-
+							<?php do_action('login_form'); ?>
                         <p>
                             <input type="checkbox" name="rememberme" id="rtAS_login_rememberme" value="forever" /><label class="rtas-rememberme-label" for="rtAS_login_rememberme"><?php _e('Remember Me') ?></label>
                         </p>
@@ -68,6 +68,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                             <input type="submit" name="wp-submit" id="rtAS_login_submit" value="<?php _e('Log In'); ?>" />
                             <a class="forgot-password" href="<?php echo RTAS_LOSTPSWD_URL; ?>" title="Password Lost and Found">Forgot Password?</a>
                         </p>
+						<?php do_action('login_form'); ?>
                     </form>
                 </div><?php
                 if ( get_option( 'users_can_register' ) != false ) { ?>
@@ -85,9 +86,11 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
 
                             <?php echo rtas_recaptcha_code(); ?>
                             <span></span>
+							<?php do_action('register_form'); ?>
                             <p>
                                 <input type="submit" name="wp-submit" id="rtAS_registration_submit" value="<?php _e('Register'); ?>" />
                             </p>
+
                         </form>
                     </div><?php
                 }
