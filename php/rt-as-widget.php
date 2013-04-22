@@ -163,11 +163,11 @@ function rtas_javascript() {
         $admin_ajax_url = array( 'admin_ajax_url' => admin_url( 'admin-ajax.php' ) );
         wp_localize_script( 'rt-as-common', 'url', $admin_ajax_url );
     }
-
-    wp_register_script( 'recaptcha-ajax', 'http://www.google.com/recaptcha/api/js/recaptcha_ajax.js', '', null, true );
-
+    $protocol = is_ssl() ? 'https://' : 'http://';
+    wp_register_script( 'recaptcha-ajax', $protocol.'www.google.com/recaptcha/api/js/recaptcha_ajax.js', '', null, true );
 }
 add_action( 'wp_enqueue_scripts', 'rtas_javascript', 9999 );
+
 function rtas_widget_javascript() {
     wp_print_scripts('recaptcha-ajax');
 }
