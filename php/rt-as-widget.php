@@ -68,7 +68,6 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                             <input type="submit" name="wp-submit" id="rtAS_login_submit" value="<?php _e('Log In'); ?>" />
                             <a class="forgot-password" href="<?php echo RTAS_LOSTPSWD_URL; ?>" title="Password Lost and Found">Forgot Password?</a>
                         </p>
-						<?php do_action('login_form'); ?>
                     </form>
                 </div><?php
                 if ( get_option( 'users_can_register' ) != false ) { ?>
