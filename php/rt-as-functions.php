@@ -289,7 +289,7 @@ function rtas_recaptcha_code() { ?>
                 </div>
             </div>
         </div><?php
-    echo recaptcha_get_html( RTAS_PUBLIC_KEY );
+    echo recaptcha_get_html( RTAS_PUBLIC_KEY, null, is_ssl() );
 }
 
 /**
@@ -423,7 +423,7 @@ function rtas_bp_add_code() {
 		$html .= $bp->signup->errors['recaptcha_response_field'];
 		$html .= '</div>';
 	}
-	$html .= recaptcha_get_html(RTAS_PUBLIC_KEY);
+	$html .= recaptcha_get_html(RTAS_PUBLIC_KEY, is_ssl());
 	$html .= '</div>';
 	$html .= '</div>';
 	echo $html;
