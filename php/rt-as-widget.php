@@ -221,7 +221,13 @@ function rtas_register_validation() {
             $new_user_id = wp_create_user( $_POST['username'], $random_password, $_POST['email'] );
         }
         $errors['recaptcha'] = "Please check your email inbox for verification.";
+        $_POST["signup_email"]=$_POST['email'];
+        $_POST["signup_password"]=$random_password;
+        $_POST["signup_username"] = $_POST['username'];
+        $_POST["field_1"] = $_POST['username'];
         wp_new_user_notification( $new_user_id, $random_password );
+        
+        do_action("user_register",$new_user_id);
     } else {
         $errors['recaptcha'] = "Renter Captcha Code.";
     }
