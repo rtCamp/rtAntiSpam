@@ -51,6 +51,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                 </ul>
                 <div id="rtAS-Login-Block" class="content">
                     <div class="rtas-loader"></div>
+                    <?php do_action('rt_before_login_form'); ?>
                     <form name="rtAS-Login-Form" id="rtAS-Login-Form" action="<?php echo RTAS_LOGIN_URL; ?>" method="post">
                         <span class="rtas-widget-info"></span>
                         <p>
@@ -69,6 +70,7 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                             <a class="forgot-password" href="<?php echo RTAS_LOSTPSWD_URL; ?>" title="Password Lost and Found">Forgot Password?</a>
                         </p>
                     </form>
+                    <?php do_action('after_login_form'); ?>
                 </div><?php
                 if ( get_option( 'users_can_register' ) != false ) { ?>
                     <div id="rtas-registration-block" class="content">
@@ -89,6 +91,8 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
                             </p>
 
                         </form>
+                        <?php do_action('after_registration_form'); ?>
+                        
                     </div><?php
                 }
             } ?>
