@@ -2,7 +2,7 @@
 /*
 Plugin Name: rtAntiSpam
 Description: Keep spammers out of your site using this plugin.
-Version: 1.0
+Version: 1.1
 Author: rtcamp
 Author URI: http://rtcamp.com
 Tags: login, registration, ajax, antispam, anti-spam, register, widget, widgets
