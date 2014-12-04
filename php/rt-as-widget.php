@@ -30,74 +30,10 @@ class RTAS_Login_Reg_Widget extends WP_Widget {
         $title = empty( $instance['title'] ) ? 'Login / Register' : apply_filters( 'widget_title', $instance['title'] );
 
         if ( !empty($title) )
-            echo $before_title . $title . $after_title;  ?>
+            echo $before_title . $title . $after_title;
 
-        <div id="rtAS-LnR-Tabs" class="rtas-tabs hide-if-no-js"><?php
-            if( is_user_logged_in() ) {
-                global $current_user;
-                get_currentuserinfo(); ?>
-                <div id="logged-in-user-container" class="content">
-                    <div class="user-salutation">
-                        <?php echo get_avatar($current_user->ID); ?>
-                        <h4>Hi <?php echo $current_user->display_name; ?></h4>
-                        <p><a href="<?php echo admin_url( '/profile.php' ); ?>" title="Your Profile">Your Profile</a></p>
-                        <p><a href="<?php echo wp_logout_url( $_SERVER['REQUEST_URI'] ); ?>" title="Log Out">Log Out</a></p>
-                    </div>
-                </div><?php
-            } else { ?>
-                <ul id="tabsmenu" class="login-register-tabs">
-                    <li class="active"><a href="#rtAS-Login-Block">Login</a></li>
-                    <?php if ( get_option( 'users_can_register' ) != false ) { ?><li><a href="#rtas-registration-block">Register</a></li><?php } ?>
-                </ul>
-                <div id="rtAS-Login-Block" class="content">
-                    <div class="rtas-loader"></div>
-                    <?php do_action('rt_before_login_form'); ?>
-                    <form name="rtAS-Login-Form" id="rtAS-Login-Form" action="<?php echo RTAS_LOGIN_URL; ?>" method="post">
-                        <span class="rtas-widget-info"></span>
-                        <p>
-                            <input class="rtas-input" type="text" name="log" id="rtAS_login_username" value="<?php _e('Username') ?>" />
-                        </p>
+	    rtas_render_login_register_form();
 
-                        <p>
-                            <input class="rtas-input" type="password" name="pwd" id="rtAS_login_password" value="<?php _e('Password') ?>" />
-                        </p>
-							<?php do_action('login_form'); ?>
-                        <p>
-                            <input type="checkbox" name="rememberme" id="rtAS_login_rememberme" value="forever" /><label class="rtas-rememberme-label" for="rtAS_login_rememberme"><?php _e('Remember Me') ?></label>
-                        </p>
-                        <p>
-                            <input type="submit" name="wp-submit" id="rtAS_login_submit" value="<?php _e('Log In'); ?>" />
-                            <a class="forgot-password" href="<?php echo RTAS_LOSTPSWD_URL; ?>" title="Password Lost and Found">Forgot Password?</a>
-                        </p>
-                    </form>
-                    <?php do_action('after_login_form'); ?>
-                </div><?php
-                if ( get_option( 'users_can_register' ) != false ) { ?>
-                    <div id="rtas-registration-block" class="content">
-                        <div class="rtas-loader"></div>
-                        <form name="rtAS-Registration-Form" id="rtAS-Registration-Form" action="<?php echo RTAS_REGISTER_URL; ?>" method="post">
-                            <span class="rtas-widget-info"></span>
-                            <p>
-                                <input class="rtas-input" type="text" name="user_login" id="rtAS_registration_username" value="<?php _e('Username') ?>" /><span></span>
-                            </p>
-
-                            <p>
-                                <input class="rtas-input" type="text" name="user_email" id="rtAS_registration_email" value="<?php _e('Email Address') ?>" /><span></span>
-                            </p>
-
-							<?php do_action('register_form'); ?>
-                            <p>
-                                <input type="submit" name="wp-submit" id="rtAS_registration_submit" value="<?php _e('Register'); ?>" />
-                            </p>
-
-                        </form>
-                        <?php do_action('after_registration_form'); ?>
-                        
-                    </div><?php
-                }
-            } ?>
-        </div>
-        <div class="hide-if-js"><?php _e( 'Please enable JavaScript on your browser to use this widget.' ); ?></div><?php
         echo $after_widget;
     }
 
