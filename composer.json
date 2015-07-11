@@ -2,7 +2,7 @@
     "name": "rtcamp/rtantispam",
     "description": "WordPress login/register sidebar widget with recaptcha support",
     "type": "wordpress-plugin",
-    "minimum-stability": "dev",
+    "version": "dev-master",
     "require": {
         "composer/installers": "^1.0"
     },
