@@ -22,7 +22,7 @@ jQuery(document).ready( function(){
     jQuery( '#rtAS_registration_email' ).blur( function() { if( this.value == '' ) this.value='Email Address'; } );
     jQuery( '#rtAS_registration_email' ).focus( function() { if( this.value == 'Email Address' ) this.value=''; } );
 
-    jQuery('#rtAS-Login-Form').live( 'submit', function(e){
+    jQuery('#rtAS-Login-Form').on( 'submit', function(e){
         e.preventDefault();
         jQuery( '#rtAS-Login-Block .rtas-loader' ).show();
         var ajaxurl = url.admin_ajax_url;
@@ -91,7 +91,7 @@ jQuery(document).ready( function(){
         });
     });
 
-    jQuery('#rtAS_registration_submit').live( 'click', function(e){
+    jQuery('#rtAS_registration_submit').on( 'click', function(e){
         e.preventDefault();
         jQuery( '#rtas-registration-block .rtas-loader' ).show();
         var ajaxurl = url.admin_ajax_url;
